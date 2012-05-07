@@ -72,8 +72,6 @@
 
 	/*
 	 *  build cards
-	 *
-	 *  TBD: use underscore.template
 	 */
 	 ids = _.uniq(ids);
 	 _.each(ids, function (id) {
