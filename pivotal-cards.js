@@ -23,8 +23,8 @@
 		'			<div class="story-type"><%= story_type %></div>' +
 		'		</div>' +
 		'		<div class="footer">' +
-		'			<span class="epic_name"><%= epic_name %></span>' +
-		'			<span class="points points"><%= points %><span><%= points %></span></span>' +
+		'			<span class="epic_name"><%= epic_name || "" %></span>' +
+		'			<span class="points points<%= points %>"><span><%= points %></span></span>' +
 		'		</div>' +
 		'	</div>' +
 		'	<div class="back side">' +
@@ -76,10 +76,15 @@
 	 ids = _.uniq(ids);
 	 _.each(ids, function (id) {
 		var matches = id.split(":");
-		var story = app.project.getStoryById(matches[1]);
+		var item, card;
+
+		var story = (matches[0] === "epic")
+			? app.project.getEpicById(matches[1])
+			: app.project.getStoryById(matches[1]);
+
 		if (story) {
-			var item = {
-				story_type: story._storyType._name,
+			item = {
+				story_type: story._storyType ? story._storyType._name : matches[0],
 				id: matches[1],
 				name: story._name,
 				description: story._description,
@@ -87,9 +92,11 @@
 				project_name: app.project.getName(),
 				points: story._points || 0
 			};
-
-			var card = make_card(item);
-
+			console.log(item);
+			if (item.story_type === "chore" && item.name.match(/\?\s*$/)) {
+				item.story_type = "spike";
+			}
+			card = make_card(item);
 			$(page).append($(card));
 		}
 	});

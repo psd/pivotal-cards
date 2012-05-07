@@ -35,14 +35,29 @@
 }
 
 .epic {
-	background-color: #ffe;
+	background-color: #fff0f0;
 }
-.epic .story-type {
-	font-size: 46mm;
+.epic .front .story-type {
+	margin-top: -12mm;
+	margin-left: 3mm;
+	font-size: 61mm;
+}
+
+.bug {
+	background-color: #fff;
+}
+.bug .label,
+.bug .points {
+	color: #fff;
+}
+.bug .front .story-type {
+	margin-top: -2mm;
+	margin-left: 7mm;
+	font-size: 30mm;
+	-webkit-transform: rotate(-12deg);
 }
 
 .chore {
-	background-color: #fff0f0;
 	background-color: #d0f0f0;
 }
 .chore .label,
@@ -56,8 +71,22 @@
 	-webkit-transform: rotate(-30deg);
 }
 
+.spike {
+	background-color: #faf47e;
+}
+.spike .label,
+.spike .points {
+	color: #faf47e;
+}
+.spike .front .story-type {
+	margin-top: 2.5mm;
+	margin-left: 18mm;
+	font-size: 29mm;
+	-webkit-transform: rotate(18deg);
+}
+
+
 .feature {
-	background-color: #ffe;
 	background-color: #d5a086;
 }
 .feature .label,

@@ -5,13 +5,12 @@
 </head>
 <body>
 <div class="test-pane">
+	<div id="epics_itemList_epic123456780" class="item"></div>
 	<div id="current_itemList_story123456781" class="item"></div>
-	<!--
 	<div id="current_itemList_story123456782" class="item"></div>
 	<div id="current_itemList_story123456783" class="item"></div>
 	<div id="current_itemList_story123456784" class="item"></div>
-	<div id="epics_itemList_epic123456785" class="item"></div>
-	-->
+	<div id="current_itemList_story123456785" class="item"></div>
 </div>
 </body>
 <script src="jquery.js"></script>
@@ -26,16 +25,44 @@ app = {
 		getName: function () {
 			return "My Project Name";
 		},
+		getEpicById: function (id) {
+			return {
+				"123456780": {
+					"_name": "Build code, fight dragons"
+				}
+			}[id];
+		},
 		getStoryById: function (id) {
 			return {
 				"123456781": {
 					"_storyType": { "_name": "feature" },
-					"_name": "WRITE CODE TO DO STUFF",
+					"_name": "Write code to do stuff",
 					"_description": "As the Project Owner I would like the developers to write some code so I can run the code.",
 					"_epic_name": "Build code, fight dragons",
 					"_points": 8
+				},
+				"123456782": {
+					"_storyType": { "_name": "bug" },
+					"_name": "The code doesn't do the expected stuff",
+					"_description": "I ran the code and discovered that the code doesn't do the expected stuff. Can we have a fix, please?.",
+				},
+				"123456783": {
+					"_storyType": { "_name": "release" },
+					"_name": "Release the stuff",
+					"_description": "The stuff needs releasing.",
+				},
+				"123456784": {
+					"_storyType": { "_name": "chore" },
+					"_name": "Wrangle stuff for the expected stuff",
+					"_description": "The stuff needs wrangling.",
+				},
+				/* a chore ending in a question mark is a spike */
+				"123456785": {
+					"_storyType": { "_name": "chore" },
+					"_name": "What do we need to wrangle for the expected stuff?",
+					"_description": "Spike to work out what stuff needs wrangling.",
 				}
-				}[id];
+			}[id];
 		}
 	},
 };
@@ -46,7 +73,7 @@ app = {
 (function($){
 
 	$(function () {
-		$.getScript('bookmarklet.js');
+		$.getScript('test-bookmarklet');
 	});
 
 
