@@ -11,7 +11,7 @@
  */
 (function ($) {
 	var make_card = _.template(
-	'<div class="feature card">' +
+	'<div class="<%= story_type %> card">' +
 	'	<div class="front side">' +
 	'		<div class="header">' +
 	'			<span class="labels">' +
@@ -79,7 +79,7 @@
 		var story = app.project.getStoryById(matches[1]);
 		if (story) {
 			var item = {
-				story_type: matches[0],
+				story_type: story._storyType._name,
 				id: matches[1],
 				name: story._name,
 				description: story._description,
