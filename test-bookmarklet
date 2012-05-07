@@ -1,0 +1,1 @@
+javascript:(function(){var a="http://localhost/pivotal-cards/",b="?nocache="+Math.random(),c=document.createElement("link");c.rel="stylesheet",c.href=a+"pivotal-cards.css"+b,c.media="screen,print",c.type="text/css",document.getElementsByTagName("head")[0].appendChild(c);var d=document.createElement("script");d.src=a+"pivotal-cards.js"+b,document.body.appendChild(d)})();
