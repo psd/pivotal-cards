@@ -11,40 +11,40 @@
  */
 (function ($) {
 	var make_card = _.template(
-	'<div class="<%= story_type %> card">' +
-	'	<div class="front side">' +
-	'		<div class="header">' +
-	'			<span class="labels">' +
-	'				<span class="label">redirection</span>' +
-	'			<span>' +
-	'		</div>' +
-	'		<div class="middle">' +
-	'			<div class="story-title"><%= name %></div>' +
-	'			<div class="story-type"><%= story_type %></div>' +
-	'		</div>' +
-	'		<div class="footer">' +
-	'			<span class="epic_name"><%= epic_name %></span>' +
-	'			<span class="points points"><%= points %><span><%= points %></span></span>' +
-	'		</div>' +
-	'	</div>' +
-	'	<div class="back side">' +
-	'		<div class="header">' +
-	'			<span class="project"><%= project_name %></span>' +
-	'			<span class="id"><%= id %></span>' +
-	'		</div>' +
-	'		<div class="middle">' +
-	'			<div class="story-title"><%= name %></div>' +
-	'			<div class="description"><%= description %></div>' +
-	'			<table class="tasks">' +
-	'				<tr><td class="check checked">☑</td><td class="task">This is the first task</td></tr>' +
-	'				<tr><td class="check">☐</td><td class="task">This is the second task</td></tr>' +
-	'				<tr><td class="check checked">☑</td><td class="task">This is the thrid task</td></tr>' +
-	'			</table>' +
-	'		</div>' +
-	'		<div class="footer">' +
-	'		</div>' +
-	'	</div>' +
-	'</div>');
+		'<div class="<%= story_type %> card">' +
+		'	<div class="front side">' +
+		'		<div class="header">' +
+		'			<span class="labels">' +
+		'				<span class="label">redirection</span>' +
+		'			<span>' +
+		'		</div>' +
+		'		<div class="middle">' +
+		'			<div class="story-title"><%= name %></div>' +
+		'			<div class="story-type"><%= story_type %></div>' +
+		'		</div>' +
+		'		<div class="footer">' +
+		'			<span class="epic_name"><%= epic_name %></span>' +
+		'			<span class="points points"><%= points %><span><%= points %></span></span>' +
+		'		</div>' +
+		'	</div>' +
+		'	<div class="back side">' +
+		'		<div class="header">' +
+		'			<span class="project"><%= project_name %></span>' +
+		'			<span class="id"><%= id %></span>' +
+		'		</div>' +
+		'		<div class="middle">' +
+		'			<div class="story-title"><%= name %></div>' +
+		'			<div class="description"><%= description %></div>' +
+		'			<table class="tasks">' +
+		'				<tr><td class="check checked">☑</td><td class="task">This is the first task</td></tr>' +
+		'				<tr><td class="check">☐</td><td class="task">This is the second task</td></tr>' +
+		'				<tr><td class="check checked">☑</td><td class="task">This is the thrid task</td></tr>' +
+		'			</table>' +
+		'		</div>' +
+		'		<div class="footer">' +
+		'		</div>' +
+		'	</div>' +
+		'</div>');
 
 
 	/*
