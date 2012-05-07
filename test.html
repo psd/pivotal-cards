@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+<body>
+<div class="test-pane">
+	<div id="current_itemList_story123456781" class="item"></div>
+	<!--
+	<div id="current_itemList_story123456782" class="item"></div>
+	<div id="current_itemList_story123456783" class="item"></div>
+	<div id="current_itemList_story123456784" class="item"></div>
+	<div id="epics_itemList_epic123456785" class="item"></div>
+	-->
+</div>
+</body>
+<script src="jquery.js"></script>
+<script src="underscore.js"></script>
+<script>
+
+/*
+ *  stub pivitol code
+ */
+app = {
+	project: {
+		getName: function () {
+			return "My Project Name";
+		},
+		getStoryById: function (id) {
+			return {
+				"123456781": {
+					"_name": "WRITE CODE TO DO STUFF",
+					"_description": "As the Project Owner I would like the developers to write some code so I can run the code.",
+					"_epic_name": "Build code, fight dragons",
+					"_points": 8
+				}
+				}[id];
+		}
+	},
+};
+
+
+/*
+ *  load and run bookmarklet
+ */
+(function($){
+
+	$(function () {
+		$.getScript('bookmarklet.js');
+	});
+
+
+}(jQuery));
+</script>
+</html>

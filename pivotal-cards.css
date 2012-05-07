@@ -1,0 +1,214 @@
+/*
+ *  hard-coded ISO paper sizes, but you can zoom when printing, no?
+ */
+.page {
+	font-family: "Helvetica Neue", sans-serif;
+	font-size: 3mm;
+	padding: 10mm;
+	display: block;
+	margin: 7.5mm;
+	padding: 0;
+	border: 1px dotted #eee;
+	width: 283mm;
+	height: 200mm;
+	overflow: scroll;
+}
+
+.card {
+	height: 85mm;
+	padding: 5mm;
+	-webkit-print-color-adjust: exact;
+}
+
+.side {
+	float: left;
+	margin: 5mm;
+
+	height: 65mm;
+	width: 115mm;
+
+	padding: 5mm;
+	border: 1mm solid #333;
+	overflow: hidden;
+	color: #333;
+	page-break-inside: avoid;
+}
+
+.epic {
+	background-color: #ffe;
+}
+.epic .story-type {
+	font-size: 46mm;
+}
+
+.chore {
+	background-color: #fff0f0;
+	background-color: #d0f0f0;
+}
+.chore .label,
+.chore .points {
+	color: #fff0f0;
+}
+.chore .front .story-type {
+	margin-top: 12.5mm;
+	margin-left: 30mm;
+	font-size: 21mm;
+	-webkit-transform: rotate(-30deg);
+}
+
+.feature {
+	background-color: #ffe;
+	background-color: #d5a086;
+}
+.feature .label,
+.feature .points {
+	color: #ffe;
+}
+
+.feature .front .story-type {
+	margin-top: 12.5mm;
+	margin-left: 25mm;
+	font-size: 21mm;
+	-webkit-transform: rotate(30deg);
+}
+
+
+.header {
+	height: 7.5mm;
+	overflow: hidden;
+	text-transform: uppercase;
+}
+
+.back .header {
+	border-bottom: 1mm solid #333;
+	margin-bottom: 4mm;
+	padding-bottom: 2mm;
+}
+
+.middle {
+	height: 53mm;
+	width: 115mm;
+	overflow: hidden;
+	display: table;
+	position: relative;
+}
+
+.front .story-type {
+	color: rgba(255, 0, 0, 0.1);
+	font-family: impact;
+	font-weight: bolder;
+	text-transform: uppercase;
+	overflow: hidden;
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+}
+
+.front .story-title {
+	font-weight: bold;
+	font-size: 2.75em;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	text-transform: uppercase;
+	z-index: 4;
+}
+
+.labels {
+	float: right;
+}
+
+.label {
+	background-color: #333;
+	color: #fff;
+	padding: 1mm;
+}
+
+.header .project,
+.header .id {
+	padding: 1mm 0;
+}
+
+.project {
+	font-weight: bold;
+}
+
+
+.back .id {
+	float: right;
+}
+
+.back .id:before {
+	content: '#';
+}
+
+.footer {
+	color: #333;
+	height: 7.5mm;
+}
+
+.amp {
+	font-family: "Baskerville";
+	font-weight: normal;
+	font-style: italic;
+}
+
+.epic_label {
+	float: left;
+	text-transform: uppercase;
+	font-size: 3mm;
+	line-height: 5.5mm;
+}
+
+.points {
+	float: right;
+	color: #fff;
+	background-color: #333;
+	width: 1em;
+	height: 1em;
+	border-radius: 1em;
+	text-align: center;
+	display: table;
+	position: relative;
+}
+
+.points span {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.points8 {
+	top: -1mm;
+}
+
+.points8 span {
+	min-width: 8mm;
+	height: 8mm;
+	border-radius: 8mm;
+	
+}
+
+.back .story-title {
+	font-weight: bold;
+}
+
+.description {
+	font-family: serif;
+	font-style: italic;
+	margin: 2mm 0;
+}
+
+.tasks {
+	margin: 2mm 0;
+	width: 100%
+}
+
+.task {
+	font-family: serif;
+	font-style: italic;
+}
+
+.check {
+	font-weight: bold;
+}
