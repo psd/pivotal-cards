@@ -10,6 +10,42 @@
  *
  */
 (function ($) {
+	var make_card = _.template(
+	'<div class="feature card">' +
+	'	<div class="front side">' +
+	'		<div class="header">' +
+	'			<span class="labels">' +
+	'				<span class="label">redirection</span>' +
+	'			<span>' +
+	'		</div>' +
+	'		<div class="middle">' +
+	'			<div class="story-title"><%= name %></div>' +
+	'			<div class="story-type"><%= story_type %></div>' +
+	'		</div>' +
+	'		<div class="footer">' +
+	'			<span class="epic_name"><%= epic_name %></span>' +
+	'			<span class="points points"><%= points %><span><%= points %></span></span>' +
+	'		</div>' +
+	'	</div>' +
+	'	<div class="back side">' +
+	'		<div class="header">' +
+	'			<span class="project"><%= project_name %></span>' +
+	'			<span class="id"><%= id %></span>' +
+	'		</div>' +
+	'		<div class="middle">' +
+	'			<div class="story-title"><%= name %></div>' +
+	'			<div class="description"><%= description %></div>' +
+	'			<table class="tasks">' +
+	'				<tr><td class="check checked">☑</td><td class="task">This is the first task</td></tr>' +
+	'				<tr><td class="check">☐</td><td class="task">This is the second task</td></tr>' +
+	'				<tr><td class="check checked">☑</td><td class="task">This is the thrid task</td></tr>' +
+	'			</table>' +
+	'		</div>' +
+	'		<div class="footer">' +
+	'		</div>' +
+	'	</div>' +
+	'</div>');
+
 
 	/*
 	 *  overlay with printable pages
@@ -29,7 +65,6 @@
 	$('.item').each(function() {
 		var id = this.id || "";
 		var matches = id.match(/_(story|epic)([0-9]+)/);
-		console.log(id, "matches:", matches);
 		if (matches) {
 			ids.push(matches[1] + ":" + matches[2]);
 		}
@@ -42,55 +77,21 @@
 	 */
 	 ids = _.uniq(ids);
 	 _.each(ids, function (id) {
-		console.log(id);
 		var matches = id.split(":");
 		var story = app.project.getStoryById(matches[1]);
-		console.log(id, story);
 		if (story) {
 			var item = {
-				_type: matches[0],
-				_id: matches[1],
-				_name: story._name,
-				_description: story._description,
-				_epic_name: story._epic_name,
-				_project_name: app.project.getName(),
-				_points: story._points || 0
+				story_type: matches[0],
+				id: matches[1],
+				name: story._name,
+				description: story._description,
+				epic_name: story._epic_name,
+				project_name: app.project.getName(),
+				points: story._points || 0
 			};
 
-			var card = '<div class="feature card">' +
-			'	<div class="front side">' +
-			'		<div class="header">' +
-			'			<span class="labels">' +
-			'				<span class="label">redirection</span>' +
-			'			<span>' +
-			'		</div>' +
-			'		<div class="middle">' +
-			'			<div class="story-title">' + item._name + '</div>' +
-			'			<div class="story-type">' + item._type + '</div>' +
-			'		</div>' +
-			'		<div class="footer">' +
-			'			<span class="epic_name">' + item._epic_name + '</span>' +
-			'			<span class="points points' + item._points + '"><span>' + item._points + '</span></span>' +
-			'		</div>' +
-			'	</div>' +
-			'	<div class="back side">' +
-			'		<div class="header">' +
-			'			<span class="project">' + item._project_name + '</span>' +
-			'			<span class="id">' + item._id + '</span>' +
-			'		</div>' +
-			'		<div class="middle">' +
-			'			<div class="story-title">' + item._name + '</div>' +
-			'			<div class="description">' + item._description + '</div>' +
-			'			<table class="tasks">' +
-			'				<tr><td class="check checked">☑</td><td class="task">This is the first task</td></tr>' +
-			'				<tr><td class="check">☐</td><td class="task">This is the second task</td></tr>' +
-			'				<tr><td class="check checked">☑</td><td class="task">This is the thrid task</td></tr>' +
-			'			</table>' +
-			'		</div>' +
-			'		<div class="footer">' +
-			'		</div>' +
-			'	</div>' +
-			'</div>'
+			var card = make_card(item);
+
 			$(page).append($(card));
 		}
 	});
