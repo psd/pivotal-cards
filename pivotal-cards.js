@@ -15,7 +15,7 @@
 		'	<div class="front side">' +
 		'		<div class="header">' +
 		'			<span class="labels">' +
-		'				<span class="label">redirection</span>' +
+		'<% _.each(labels, function(label) { %> <span class="label"><%= label %></span> <% }); %>' +
 		'			<span>' +
 		'		</div>' +
 		'		<div class="middle">' +
@@ -35,11 +35,13 @@
 		'		<div class="middle">' +
 		'			<div class="story-title"><%= name %></div>' +
 		'			<div class="description"><%= description %></div>' +
+		/*
 		'			<table class="tasks">' +
 		'				<tr><td class="check checked">☑</td><td class="task">This is the first task</td></tr>' +
 		'				<tr><td class="check">☐</td><td class="task">This is the second task</td></tr>' +
 		'				<tr><td class="check checked">☑</td><td class="task">This is the thrid task</td></tr>' +
 		'			</table>' +
+		*/
 		'		</div>' +
 		'		<div class="footer">' +
 		'		</div>' +
@@ -87,12 +89,12 @@
 				story_type: story._storyType ? story._storyType._name : matches[0],
 				id: matches[1],
 				name: story._name,
-				description: story._description,
+				description: story._description || "",
 				epic_name: story._epic_name,
 				project_name: app.project.getName(),
+				labels:  [ "one", "two", "three" ],
 				points: story._points || 0
 			};
-			console.log(item);
 			if (item.story_type === "chore" && item.name.match(/\?\s*$/)) {
 				item.story_type = "spike";
 			}
