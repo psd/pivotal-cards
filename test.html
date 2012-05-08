@@ -34,6 +34,9 @@ app = {
 				}
 			}[id];
 		},
+		getEpicByLabel: function (label) {
+			return label === "Build code, fight dragons";
+		},
 		getStoryById: function (id) {
 			return {
 				"123456781": {
@@ -41,7 +44,7 @@ app = {
 					"_name": "Write code to do stuff",
 					"_description": "As the Project Owner I would like the developers to write some code so I can run the code.",
 					"_epic_name": "Build code, fight dragons",
-					getLabels: function () { return ["one", "two", "three"]; },
+					getLabels: function () { return ["one", "two", "three", "Build code, fight dragons"]; },
 					getTasks: function () { return [ { _complete: true, _description: "first task" }, { _complete: false, _description: "this is the second task" } ] },
 					getOwnedBy: function () { return { displayName: "Joe Bloggs" }; },
 					"_points": 8

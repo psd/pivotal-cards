@@ -85,14 +85,23 @@
 			: app.project.getStoryById(matches[1]);
 
 		if (story) {
+			var labels = [];
+			var epic_name = "";
+			_.each(story.getLabels(), function(label) {
+				if (app.project.getEpicByLabel(label)) {
+					epic_name = label;
+				} else {
+					labels.push(label);
+				}
+			});
 			item = {
 				story_type: story._storyType ? story._storyType._name : matches[0],
 				id: matches[1],
 				name: story._name,
 				description: story._description || "",
-				epic_name: story._epic_name || "",
+				epic_name: epic_name,
 				project_name: app.project.getName(),
-				labels: story.getLabels(),
+				labels: labels,
 				tasks: story.getTasks && story.getTasks(),
 				requester: story.getRequestedBy && story.getRequestedBy().displayName,
 				owner: story.getOwnedBy && story.getOwnedBy() && story.getOwnedBy().displayName,

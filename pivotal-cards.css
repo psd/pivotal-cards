@@ -59,7 +59,7 @@
 }
 
 .back .middle {
-	height: 49mm;
+	height: 48mm;
 }
 
 .front .story-type {
@@ -123,7 +123,7 @@
 	font-style: italic;
 }
 
-.epic_label {
+.epic_name {
 	float: left;
 	text-transform: uppercase;
 	line-height: 5.5mm;
