@@ -128,11 +128,6 @@
 
 .points {
 	float: right;
-	color: #fff;
-	background-color: #333;
-	width: 1em;
-	height: 1em;
-	border-radius: 1em;
 	text-align: center;
 	display: table;
 	position: relative;
@@ -141,17 +136,6 @@
 .points span {
 	display: table-cell;
 	vertical-align: middle;
-}
-
-.points8 {
-	top: -1mm;
-}
-
-.points8 span {
-	min-width: 8mm;
-	height: 8mm;
-	border-radius: 8mm;
-	
 }
 
 .back .story-title {
@@ -185,8 +169,7 @@
 .bug {
 	background-color: #d5a086;
 }
-.bug .label,
-.bug .points {
+.bug .label {
 	color: #d5a086;
 }
 .bug .front .story-type {
@@ -199,8 +182,7 @@
 .chore {
 	background-color: #d0f0f0;
 }
-.chore .label,
-.chore .points {
+.chore .label {
 	color: #d0f0f0;
 }
 .chore .front .story-type {
@@ -213,8 +195,7 @@
 .epic {
 	background-color: #f0b040;
 }
-.epic .label,
-.epic .points {
+.epic .label {
 	color: #f0b040;
 }
 .epic .front .story-type {
@@ -226,8 +207,7 @@
 .release {
 	background-color: #8580ff;
 }
-.release .label,
-.release .points {
+.release .label {
 	color: #8580ff;
 }
 .release .front .story-type {
@@ -240,8 +220,7 @@
 .feature {
 	background-color: #c5d0b6;
 }
-.feature .label,
-.feature .points {
+.feature .label {
 	color: #c5d0b6;
 }
 .feature .front .story-type {
@@ -254,8 +233,7 @@
 .spike {
 	background-color: #faf47e;
 }
-.spike .label,
-.spike .points {
+.spike .label {
 	color: #faf47e;
 }
 .spike .front .story-type {

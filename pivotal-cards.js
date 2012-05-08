@@ -35,13 +35,12 @@
 		'		<div class="middle">' +
 		'			<div class="story-title"><%= name %></div>' +
 		'			<div class="description"><%= description %></div>' +
-		/*
 		'			<table class="tasks">' +
-		'				<tr><td class="check checked">☑</td><td class="task">This is the first task</td></tr>' +
-		'				<tr><td class="check">☐</td><td class="task">This is the second task</td></tr>' +
-		'				<tr><td class="check checked">☑</td><td class="task">This is the thrid task</td></tr>' +
+		'<% _.each(tasks, function(task) { %><tr>' +
+		'			<td class="check <%= task._complete ? "complete" : "incomplete" %>"><%= task._complete ? "☑" : "☐" %></td>' +
+		'			<td class="task"><%= task._description %></td>' +
+		'</tr><% }); %>' +
 		'			</table>' +
-		*/
 		'		</div>' +
 		'		<div class="footer">' +
 		'		</div>' +
@@ -93,6 +92,7 @@
 				epic_name: story._epic_name,
 				project_name: app.project.getName(),
 				labels: story.getLabels(),
+				tasks: story.getTasks(),
 				points: story._points || 0
 			};
 			if (item.story_type === "chore" && item.name.match(/\?\s*$/)) {
