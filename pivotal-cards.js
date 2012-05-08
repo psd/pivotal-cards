@@ -92,7 +92,7 @@
 				description: story._description || "",
 				epic_name: story._epic_name,
 				project_name: app.project.getName(),
-				labels:  [ "one", "two", "three" ],
+				labels: story.getLabels(),
 				points: story._points || 0
 			};
 			if (item.story_type === "chore" && item.name.match(/\?\s*$/)) {
