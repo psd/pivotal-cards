@@ -131,14 +131,10 @@
 
 .points {
 	float: right;
-	text-align: center;
-	display: table;
 	position: relative;
-}
-
-.points span {
-	display: table-cell;
-	vertical-align: middle;
+	top: -4.5mm;
+	font-size: 9mm;
+	font-weight: bold;
 }
 
 .back .story-title {
