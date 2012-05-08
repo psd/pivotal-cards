@@ -3,7 +3,7 @@
  */
 .page {
 	font-family: "Helvetica Neue", sans-serif;
-	font-size: 3mm;
+	font-size: 3.5mm;
 	padding: 10mm;
 	display: block;
 	margin: 7.5mm;
@@ -56,6 +56,10 @@
 	overflow: hidden;
 	display: table;
 	position: relative;
+}
+
+.back .middle {
+	height: 49mm;
 }
 
 .front .story-type {
@@ -122,7 +126,6 @@
 .epic_label {
 	float: left;
 	text-transform: uppercase;
-	font-size: 3mm;
 	line-height: 5.5mm;
 }
 
@@ -144,7 +147,6 @@
 
 .description {
 	font-family: serif;
-	font-style: italic;
 	margin: 2mm 0;
 }
 
@@ -159,6 +161,25 @@
 }
 
 .check {
+	font-weight: bold;
+}
+
+.requester {
+	float: left;
+}
+
+.requester:before {
+	content: "By: ";
+	font-weight: bold;
+}
+
+
+.owner {
+	float: right;
+}
+
+.owner:before {
+	content: "For: ";
 	font-weight: bold;
 }
 

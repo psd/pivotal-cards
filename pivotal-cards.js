@@ -23,7 +23,7 @@
 		'			<div class="story-type"><%= story_type %></div>' +
 		'		</div>' +
 		'		<div class="footer">' +
-		'			<span class="epic_name"><%= epic_name || "" %></span>' +
+		'			<span class="epic_name"><%= epic_name %></span>' +
 		'			<span class="points points<%= points %>"><span><%= points %></span></span>' +
 		'		</div>' +
 		'	</div>' +
@@ -43,10 +43,11 @@
 		'			</table>' +
 		'		</div>' +
 		'		<div class="footer">' +
+		'			<% if (requester) { %><span class="requester"><%= requester %></span><% } %>' +
+		'			<% if (owner) { %><span class="owner"><%= owner %></span><% } %>' +
 		'		</div>' +
 		'	</div>' +
 		'</div>');
-
 
 	/*
 	 *  overlay with printable pages
@@ -89,11 +90,13 @@
 				id: matches[1],
 				name: story._name,
 				description: story._description || "",
-				epic_name: story._epic_name,
+				epic_name: story._epic_name || "",
 				project_name: app.project.getName(),
 				labels: story.getLabels(),
-				tasks: story.getTasks(),
-				points: story._points || 0
+				tasks: story.getTasks && story.getTasks(),
+				requester: story.getRequestedBy && story.getRequestedBy().displayName,
+				owner: story.getOwnedBy && story.getOwnedBy() && story.getOwnedBy().displayName,
+				points: story._points || ""
 			};
 			if (item.story_type === "chore" && item.name.match(/\?\s*$/)) {
 				item.story_type = "spike";

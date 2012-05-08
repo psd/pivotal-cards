@@ -43,6 +43,7 @@ app = {
 					"_epic_name": "Build code, fight dragons",
 					getLabels: function () { return ["one", "two", "three"]; },
 					getTasks: function () { return [ { _complete: true, _description: "first task" }, { _complete: false, _description: "this is the second task" } ] },
+					getOwnedBy: function () { return { displayName: "Joe Bloggs" }; },
 					"_points": 8
 				},
 				"123456782": {
@@ -50,7 +51,9 @@ app = {
 					"_name": "The code doesn't do the expected stuff",
 					"_description": "I ran the code and discovered that the code doesn't do the expected stuff. Can we have a fix, please?.",
 					getLabels: function () { return ["one", "two", "three"]; },
-					getTasks: function () { return []; }
+					getTasks: function () { return []; },
+					getOwnedBy: function () { return { displayName: "Joe Bloggs" }; },
+					getRequestedBy: function () { return { displayName: "Anne Other" }; }
 				},
 				"123456783": {
 					"_storyType": { "_name": "release" },
