@@ -8,7 +8,7 @@ cat <<-!
 <head><title>Pivotal Cards</title></head>
 <body>
 <h1>Pivotal Cards</h1>
-<p>Printable index cards for your <a href="https://pivotaltracker.com">Pivotal Tracker</a> project.</p>
+<p>Printable index cards for your <a href="https://www.pivotaltracker.com">Pivotal Tracker</a> project.</p>
 <ol>
 !
 echo "<li>Drag the <a href='"$(cat bookmarklet)"'>pivotal-cards</a> bookmarklet to your bookmarks bar,"
