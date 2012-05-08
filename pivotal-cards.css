@@ -1,0 +1,268 @@
+/*
+ *  hard-coded ISO paper sizes, but you can zoom when printing, no?
+ */
+.page {
+	font-family: "Helvetica Neue", sans-serif;
+	font-size: 3.5mm;
+	padding: 10mm;
+	display: block;
+	margin: 5mm;
+	padding: 0;
+	border: 1px dotted #eee;
+	width: 283mm;
+	height: 200mm;
+}
+
+.card {
+	height: 85mm;
+	padding: 5mm;
+	-webkit-print-color-adjust: exact;
+	page-break-inside: avoid; /* sadly bugged, so page-break-after:always */
+}
+
+.card:nth-child(even) {
+	page-break-after: always;
+}
+
+.side {
+	float: left;
+	margin: 5mm;
+
+	height: 65mm;
+	width: 115mm;
+
+	padding: 5mm;
+	border: 1mm solid #333;
+	overflow: hidden;
+	color: #333;
+	position: relative;
+}
+
+
+.header {
+	height: 7.5mm;
+	overflow: hidden;
+	text-transform: uppercase;
+}
+
+.back .header {
+	border-bottom: 1mm solid #333;
+	margin-bottom: 4mm;
+	padding-bottom: 2mm;
+}
+
+.middle {
+	height: 53mm;
+	max-height: 53mm;
+	width: 115mm;
+	overflow: hidden;
+	display: table;
+	position: relative;
+}
+
+.back .middle {
+	height: 48mm;
+	max-height: 48mm;
+}
+
+.front .story-type {
+	color: rgba(255, 0, 0, 0.1);
+	font-family: impact;
+	font-weight: bolder;
+	text-transform: uppercase;
+	overflow: hidden;
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+}
+
+.front .story-title {
+	font-weight: bold;
+	font-size: 9mm;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	text-transform: uppercase;
+	z-index: 4;
+}
+
+.labels {
+	float: right;
+}
+
+.label {
+	background-color: #333;
+	color: #fff;
+	padding: 1mm;
+}
+
+.header .project,
+.header .id {
+	padding: 1mm 0;
+}
+
+.project {
+	font-weight: bold;
+}
+
+
+.back .id {
+	float: right;
+}
+
+.back .id:before {
+	content: '#';
+}
+
+.footer {
+	color: #333;
+	height: 7.5mm;
+	width: 115mm;
+	position: absolute;
+	bottom: 0;
+}
+
+.amp {
+	font-family: "Baskerville";
+	font-weight: normal;
+	font-style: italic;
+}
+
+.epic_name {
+	float: left;
+	text-transform: uppercase;
+}
+
+.points {
+	float: right;
+	position: relative;
+	top: -4.5mm;
+	font-size: 9mm;
+	font-weight: bold;
+}
+
+.back .story-title {
+	font-weight: bold;
+}
+
+.description {
+	font-family: serif;
+	margin: 2mm 0;
+}
+
+.tasks {
+	margin: 2mm 0;
+	width: 100%
+}
+
+.task {
+	font-family: serif;
+	font-style: italic;
+}
+
+.check {
+	font-weight: bold;
+	vertical-align: top;
+}
+
+.requester {
+	float: left;
+}
+
+.requester:before {
+	content: "By: ";
+	font-weight: bold;
+}
+
+
+.owner {
+	float: right;
+}
+
+.owner:before {
+	content: "For: ";
+	font-weight: bold;
+}
+
+
+/*
+ *  cards for story-type
+ */
+.bug, .bug .footer {
+	background-color: #d5a086;
+}
+.bug .label {
+	color: #d5a086;
+}
+.bug .front .story-type {
+	margin-top: -2mm;
+	margin-left: 7mm;
+	font-size: 30mm;
+	-webkit-transform: rotate(-12deg);
+}
+
+.chore, .chore .footer {
+	background-color: #d0f0f0;
+}
+.chore .label {
+	color: #d0f0f0;
+}
+.chore .front .story-type {
+	margin-top: 12.5mm;
+	margin-left: 30mm;
+	font-size: 21mm;
+	-webkit-transform: rotate(-30deg);
+}
+
+.epic, .epic .footer  {
+	background-color: #f0b040;
+}
+.epic .label {
+	color: #f0b040;
+}
+.epic .front .story-type {
+	margin-top: -12mm;
+	margin-left: 3mm;
+	font-size: 61mm;
+}
+
+.release, .release .footer {
+	background-color: #a090ff;
+}
+.release .label {
+	color: #8580ff;
+}
+.release .front .story-type {
+	margin-top: 12.5mm;
+	margin-left: 25mm;
+	font-size: 21mm;
+	-webkit-transform: rotate(30deg);
+}
+
+.feature, .feature .footer {
+	background-color: #c5d0b6;
+}
+.feature .label {
+	color: #c5d0b6;
+}
+.feature .front .story-type {
+	margin-top: 12.5mm;
+	margin-left: 25mm;
+	font-size: 21mm;
+	-webkit-transform: rotate(30deg);
+}
+
+.spike, .spike .footer {
+	background-color: #faf47e;
+}
+.spike .label {
+	color: #faf47e;
+}
+.spike .front .story-type {
+	margin-top: 2.5mm;
+	margin-left: 18mm;
+	font-size: 29mm;
+	-webkit-transform: rotate(18deg);
+}
+
