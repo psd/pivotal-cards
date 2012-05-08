@@ -181,6 +181,10 @@
 .epic {
 	background-color: #fff0f0;
 }
+.epic .label,
+.epic .points {
+	color: #fff0f0;
+}
 .epic .front .story-type {
 	margin-top: -12mm;
 	margin-left: 3mm;
@@ -206,7 +210,7 @@
 }
 .chore .label,
 .chore .points {
-	color: #fff0f0;
+	color: #d0f0f0;
 }
 .chore .front .story-type {
 	margin-top: 12.5mm;
@@ -235,7 +239,7 @@
 }
 .feature .label,
 .feature .points {
-	color: #ffe;
+	color: #d5a086;
 }
 
 .feature .front .story-type {
