@@ -1,5 +1,5 @@
 TEST_LOCATION="http://localhost/pivotal-cards/"
-LIVE_LOCATION="https://psd.github.com/pivotal-cards/"
+LIVE_LOCATION="http://psd.github.com/pivotal-cards/"
 
 all::	dependencies
 all::	bookmarklet test-bookmarklet
