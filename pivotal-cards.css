@@ -178,25 +178,12 @@
 /*
  *  cards for story-type
  */
-.epic {
-	background-color: #fff0f0;
-}
-.epic .label,
-.epic .points {
-	color: #fff0f0;
-}
-.epic .front .story-type {
-	margin-top: -12mm;
-	margin-left: 3mm;
-	font-size: 61mm;
-}
-
 .bug {
-	background-color: #fff;
+	background-color: #d5a086;
 }
 .bug .label,
 .bug .points {
-	color: #fff;
+	color: #d5a086;
 }
 .bug .front .story-type {
 	margin-top: -2mm;
@@ -219,6 +206,47 @@
 	-webkit-transform: rotate(-30deg);
 }
 
+.epic {
+	background-color: #f0b040;
+}
+.epic .label,
+.epic .points {
+	color: #fff0f0;
+}
+.epic .front .story-type {
+	margin-top: -12mm;
+	margin-left: 3mm;
+	font-size: 61mm;
+}
+
+.release {
+	background-color: #8580ff;
+}
+.release .label,
+.release .points {
+	color: #8580ff;
+}
+.release .front .story-type {
+	margin-top: 12.5mm;
+	margin-left: 25mm;
+	font-size: 21mm;
+	-webkit-transform: rotate(30deg);
+}
+
+.feature {
+	background-color: #c5d0b6;
+}
+.feature .label,
+.feature .points {
+	color: #c5d0b6;
+}
+.feature .front .story-type {
+	margin-top: 12.5mm;
+	margin-left: 25mm;
+	font-size: 21mm;
+	-webkit-transform: rotate(30deg);
+}
+
 .spike {
 	background-color: #faf47e;
 }
@@ -233,18 +261,3 @@
 	-webkit-transform: rotate(18deg);
 }
 
-
-.feature {
-	background-color: #d5a086;
-}
-.feature .label,
-.feature .points {
-	color: #d5a086;
-}
-
-.feature .front .story-type {
-	margin-top: 12.5mm;
-	margin-left: 25mm;
-	font-size: 21mm;
-	-webkit-transform: rotate(30deg);
-}
