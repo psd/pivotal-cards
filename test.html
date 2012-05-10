@@ -28,7 +28,7 @@ app = {
 		getEpicById: function (id) {
 			return {
 				"123456780": {
-					"_name": "Build code, fight dragons",
+					getName: function () { return "Build code, fight dragons" },
 					getLabels: function () { return [] },
 					getTasks: function () { return []; }
 				}
@@ -41,33 +41,34 @@ app = {
 			return {
 				"123456781": {
 					"_storyType": { "_name": "feature" },
-					"_name": "Write code to do stuff",
+					getName: function() { return "Write code to do stuff" },
 					"_description": "As the Project Owner I would like the developers to write some code so I can run the code.",
 					"_epic_name": "Build code, fight dragons",
 					getLabels: function () { return ["one", "two", "three", "Build code, fight dragons"]; },
 					getTasks: function () { return [ { _complete: true, _description: "first task" }, { _complete: false, _description: "this is the second task" } ] },
 					getOwnedBy: function () { return { displayName: "Joe Bloggs" }; },
-					"_points": 8
+					getEstimate: function () { return 8 }
 				},
 				"123456782": {
 					"_storyType": { "_name": "bug" },
-					"_name": "The code doesn't do the expected stuff",
+					getName: function() { return "The code doesn't do the expected stuff" },
 					"_description": "I ran the code and discovered that the code doesn't do the expected stuff. Can we have a fix, please?.",
 					getLabels: function () { return ["one", "two", "three"]; },
 					getTasks: function () { return []; },
 					getOwnedBy: function () { return { displayName: "Joe Bloggs" }; },
-					getRequestedBy: function () { return { displayName: "Anne Other" }; }
+					getRequestedBy: function () { return { displayName: "Anne Other" }; },
+					getEstimate: function () { return -1 }
 				},
 				"123456783": {
 					"_storyType": { "_name": "release" },
-					"_name": "Release the stuff",
+					getName: function() { return "Release the stuff" },
 					"_description": "The stuff needs releasing.",
 					getLabels: function () { return ["one", "two", "three"]; },
 					getTasks: function () { return []; }
 				},
 				"123456784": {
 					"_storyType": { "_name": "chore" },
-					"_name": "Wrangle stuff for the expected stuff",
+					getName: function() { return "Wrangle stuff for the expected stuff" },
 					"_description": "The stuff needs wrangling.",
 					getLabels: function () { return ["one", "two", "three"]; },
 					getTasks: function () { return []; }
@@ -75,7 +76,7 @@ app = {
 				/* a chore ending in a question mark is a spike */
 				"123456785": {
 					"_storyType": { "_name": "chore" },
-					"_name": "What do we need to wrangle for the expected stuff?",
+					getName: function() { return "What do we need to wrangle for the expected stuff?" },
 					"_description": "Spike to work out what stuff needs wrangling.",
 					getLabels: function () { return ["one", "two", "three"]; },
 					getTasks: function () { return []; }

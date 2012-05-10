@@ -98,10 +98,11 @@
 					labels.push(label);
 				}
 			});
+			var points = story.getEstimate && story.getEstimate();
 			item = {
 				story_type: story._storyType ? story._storyType._name : matches[0],
 				id: matches[1],
-				name: story._name,
+				name: story.getName(),
 				description: story._description || "",
 				epic_name: epic_name,
 				project_name: app.project.getName(),
@@ -109,7 +110,7 @@
 				tasks: story.getTasks && story.getTasks(),
 				requester: story.getRequestedBy && story.getRequestedBy().displayName,
 				owner: story.getOwnedBy && story.getOwnedBy() && story.getOwnedBy().displayName,
-				points: story._points || ""
+				points: points > 0 ? points : ""
 			};
 			if (item.story_type === "chore" && item.name.match(/\?\s*$/)) {
 				item.story_type = "spike";
