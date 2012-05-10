@@ -64,7 +64,11 @@
 	 *  TBD: screen-scraping possibly fragile ..
 	 */
 	var ids = [];
-	$('.item').each(function() {
+	var items = $('.item > .selected'); // use the selected items
+  	if (items.length == 0) { // if there are no selected items ...
+		items = $('.item'); // ... then use all items
+	}
+	items.each(function() {
 		var id = this.id || "";
 		var matches = id.match(/_(story|epic)([0-9]+)/);
 		if (matches) {
