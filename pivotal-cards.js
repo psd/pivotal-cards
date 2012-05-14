@@ -55,8 +55,8 @@
 	 *  TBD: really should make a dismissable overlay
 	 */
 	$('body > *').hide();
-	var page = $('<div class="page"></div>');
-	$('body').append(page);
+	var main = $('<div id="pivotal-cards-pages"></div>');
+	$('body').append(main);
 
 	/*
 	 *  Find visible items
@@ -79,6 +79,8 @@
 	/*
 	 *  build cards
 	 */
+	var cardno = 0;
+	var page;
 	 ids = _.uniq(ids);
 	 _.each(ids, function (id) {
 		var matches = id.split(":");
@@ -116,7 +118,17 @@
 				item.story_type = "spike";
 			}
 			card = make_card(item);
-			$(page).append($(card));
+
+			/*
+			 *  pagination
+			 */
+			if ((cardno % 2) === 0) {
+				page = $('<div class="page" id="page' + (cardno / 2) + '"></div>');
+				main.append(page);
+			}
+			cardno++;
+
+			page.append($(card));
 		}
 	});
 	//});
