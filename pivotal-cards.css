@@ -14,7 +14,7 @@
 	page-break-after: always;
 }
 
-.rotate-backs .backs {
+.double-sided .backs {
 	-webkit-transform: rotate(180deg);
 }
 

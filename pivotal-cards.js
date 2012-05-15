@@ -15,8 +15,7 @@
 		"filing-colours": true,
 		"rubber-stamp": true,
 		"double-sided": true,
-		"white-backs": true,
-		"rotate-backs": true
+		"white-backs": true
 	};
 
 	var make_front = _.template(
