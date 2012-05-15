@@ -6,7 +6,7 @@
 	font-size: 3.5mm;
 	padding: 10mm;
 	display: block;
-	margin: 5mm;
+	margin: 14mm 5.5mm;
 	padding: 0;
 	border: 1px dotted #eee;
 	width: 283mm;
@@ -14,11 +14,17 @@
 	page-break-after: always;
 }
 
+.rotate-even .page:nth-child(even) {
+	-webkit-transform: rotate(180deg);
+}
+
 .card {
 	float: left;
 	height: 85mm;
 	width; 132mm;
 	padding: 0;
+	padding-left: 3.5mm;
+	padding-top: 0.5mm;
 	-webkit-print-color-adjust: exact;
 }
 

@@ -14,7 +14,8 @@
 	var options = {
 		"filing-colours": true,
 		"rubber-stamp": true,
-		"double-sided": false
+		"double-sided": false,
+		"rotate-even": true
 	};
 
 	var make_card = _.template(
