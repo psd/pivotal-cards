@@ -14,9 +14,9 @@
 	var options = {
 		"filing-colours": true,
 		"rubber-stamp": true,
-		"double-sided": false,
-		"white-backs": false,
-		"rotate-backs": false
+		"double-sided": true,
+		"white-backs": true,
+		"rotate-backs": true
 	};
 
 	var make_front = _.template(
@@ -115,6 +115,7 @@
 		if (story) {
 			var labels = [];
 			var epic_name = "";
+
 			_.each(story.getLabels(), function(label) {
 				if (app.project.getEpicByLabel(label)) {
 					epic_name = label;
@@ -122,12 +123,16 @@
 					labels.push(label);
 				}
 			});
+
 			var points = story.getEstimate && story.getEstimate();
+			var name = story.getName() || "";
+			name = name.replace(/\band\b|&/g, '<span class="amp">&amp;</span>');
+
 			item = {
 				cardno: cardno,
 				story_type: story._storyType ? story._storyType._name : matches[0],
 				id: matches[1],
-				name: story.getName(),
+				name: name,
 				description: story._description || "",
 				epic_name: epic_name,
 				project_name: app.project.getName(),
