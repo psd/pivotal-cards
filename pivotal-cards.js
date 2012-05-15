@@ -13,9 +13,9 @@
 
 	var options = {
 		"filing-colours": true,
-		"white-backs": true,
 		"rubber-stamp": true,
 		"double-sided": false,
+		"white-backs": false,
 		"rotate-backs": false
 	};
 
