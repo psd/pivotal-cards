@@ -78,8 +78,6 @@
 
 	/*
 	 *  Find visible items
-	 *
-	 *  TBD: screen-scraping possibly fragile ..
 	 */
 	var ids = [];
 	var items = $('.item > .selected'); // use the selected items
