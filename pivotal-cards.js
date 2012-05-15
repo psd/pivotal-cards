@@ -10,6 +10,13 @@
  *
  */
 (function ($) {
+
+	var options = {
+		"rubber-stamp": true,
+		"filing-colours": false,
+		"double-sided": false,
+	};
+
 	var make_card = _.template(
 		'<div class="<%= story_type %> card">' +
 		'	<div class="front side">' +
@@ -56,6 +63,11 @@
 	 */
 	$('body > *').hide();
 	var main = $('<div id="pivotal-cards-pages"></div>');
+	_.each(options, function(value, option) {
+		if (value) {
+			main.addClass(option);
+		}
+	});
 	$('body').append(main);
 
 	/*

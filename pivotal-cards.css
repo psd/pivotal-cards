@@ -27,10 +27,13 @@
 	width: 115mm;
 
 	padding: 5mm;
-	border: 1mm solid #333;
 	overflow: hidden;
 	color: #333;
 	position: relative;
+}
+
+.back {
+	border: 1mm solid #333;
 }
 
 .header {
@@ -183,79 +186,104 @@
 /*
  *  cards for story-type
  */
-.bug, .bug .footer {
-	background-color: #d5a086;
-}
-.bug .label {
-	color: #d5a086;
-}
-.bug .front .story-type {
-	margin-top: -2mm;
-	margin-left: 7mm;
-	font-size: 30mm;
-	-webkit-transform: rotate(-12deg);
+.filing-cabinet-style .side {
+	border: 1mm solid #333;
 }
 
-.chore, .chore .footer {
+.filing-colours .bug,
+.filing-colours .bug .footer {
+	background-color: #d5a086;
+}
+
+.filing-colours .bug .label {
+	color: #d5a086;
+}
+
+.filing-colours .chore,
+.filing-colours .chore .footer {
 	background-color: #d0f0f0;
 }
-.chore .label {
+
+.filing-colours .chore .label {
 	color: #d0f0f0;
 }
-.chore .front .story-type {
+
+.filing-colours .epic,
+.filing-colours .epic .footer  {
+	background-color: #f0b040;
+}
+
+.filing-colours .epic .label {
+	color: #f0b040;
+}
+
+.filing-colours .release,
+.filing-colours .release .footer {
+	background-color: #a090ff;
+}
+
+.filing-colours .release .label {
+	color: #8580ff;
+}
+
+.filing-colours .feature,
+.filing-colours .feature .footer {
+	background-color: #c5d0b6;
+}
+
+.filing-colours .feature .label {
+	color: #c5d0b6;
+}
+
+.filing-colours .spike,
+.filing-colours .spike .footer {
+	background-color: #faf47e;
+}
+
+.filing-colours .spike .label {
+	color: #faf47e;
+}
+
+/*
+ *  story type as rubber stamp
+ */
+.rubber-stamp .chore .front .story-type {
 	margin-top: 12.5mm;
 	margin-left: 30mm;
 	font-size: 21mm;
 	-webkit-transform: rotate(-30deg);
 }
 
-.epic, .epic .footer  {
-	background-color: #f0b040;
-}
-.epic .label {
-	color: #f0b040;
-}
-.epic .front .story-type {
+.rubber-stamp .epic .front .story-type {
 	margin-top: -12mm;
 	margin-left: 3mm;
 	font-size: 61mm;
 }
 
-.release, .release .footer {
-	background-color: #a090ff;
-}
-.release .label {
-	color: #8580ff;
-}
-.release .front .story-type {
+.rubber-stamp .feature .front .story-type {
 	margin-top: 12.5mm;
 	margin-left: 25mm;
 	font-size: 21mm;
 	-webkit-transform: rotate(30deg);
 }
 
-.feature, .feature .footer {
-	background-color: #c5d0b6;
-}
-.feature .label {
-	color: #c5d0b6;
-}
-.feature .front .story-type {
-	margin-top: 12.5mm;
-	margin-left: 25mm;
-	font-size: 21mm;
-	-webkit-transform: rotate(30deg);
-}
-
-.spike, .spike .footer {
-	background-color: #faf47e;
-}
-.spike .label {
-	color: #faf47e;
-}
-.spike .front .story-type {
+.rubber-stamp .spike .front .story-type {
 	margin-top: 2.5mm;
 	margin-left: 18mm;
 	font-size: 29mm;
 	-webkit-transform: rotate(18deg);
+}
+
+.rubber-stamp .release .front .story-type {
+	margin-top: 12.5mm;
+	margin-left: 25mm;
+	font-size: 21mm;
+	-webkit-transform: rotate(30deg);
+}
+
+.rubber-stamp .bug .front .story-type {
+	margin-top: -2mm;
+	margin-left: 7mm;
+	font-size: 30mm;
+	-webkit-transform: rotate(-12deg);
 }
