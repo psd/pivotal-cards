@@ -10,17 +10,19 @@
 	padding: 0;
 	border: 1px dotted #eee;
 	width: 283mm;
+	height: 170mm;
 	page-break-after: always;
 }
 
 .card {
+	float: left;
 	height: 85mm;
-	padding: 5mm;
+	width; 132mm;
+	padding: 0;
 	-webkit-print-color-adjust: exact;
 }
 
 .side {
-	float: left;
 	margin: 5mm;
 
 	height: 65mm;

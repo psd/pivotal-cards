@@ -12,13 +12,13 @@
 (function ($) {
 
 	var options = {
+		"filing-colours": true,
 		"rubber-stamp": true,
-		"filing-colours": false,
 		"double-sided": false
 	};
 
 	var make_card = _.template(
-		'<div class="<%= story_type %> card">' +
+		'<div class="<%= story_type %> card" id="front-<% cardno %>">' +
 		'	<div class="front side">' +
 		'		<div class="header">' +
 		'			<span class="labels">' +
@@ -34,6 +34,8 @@
 		'			<span class="points points<%= points %>"><span><%= points %></span></span>' +
 		'		</div>' +
 		'	</div>' +
+		'</div>' +
+		'<div class="<%= story_type %> card" id="back-<% cardno %>">' +
 		'	<div class="back side">' +
 		'		<div class="header">' +
 		'			<span class="project"><%= project_name %></span>' +
@@ -114,6 +116,7 @@
 			});
 			var points = story.getEstimate && story.getEstimate();
 			item = {
+				cardno: cardno,
 				story_type: story._storyType ? story._storyType._name : matches[0],
 				id: matches[1],
 				name: story.getName(),
