@@ -236,7 +236,7 @@
 
 .filing-colours .feature,
 .filing-colours .feature .footer {
-	background-color: #f0ffe0;
+	background-color: #e9f9d9;
 }
 
 .filing-colours .feature .label {
@@ -268,10 +268,7 @@
 }
 
 .rubber-stamp .feature .front .story-type {
-	margin-top: 12.5mm;
-	margin-left: 25mm;
-	font-size: 21mm;
-	-webkit-transform: rotate(30deg);
+	display: none;
 }
 
 .rubber-stamp .spike .front .story-type {
@@ -290,4 +287,13 @@
 	margin-top: -11mm;
 	margin-left: 7mm;
 	font-size: 62mm;
+}
+
+/*
+ *  white backs
+ */
+.white-backs .backs .card,
+.white-backs .backs .card .side,
+.white-backs .backs .card .side .footer {
+	background-color: #ffffff;
 }
