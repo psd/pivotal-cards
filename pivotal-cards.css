@@ -14,7 +14,7 @@
 	page-break-after: always;
 }
 
-.rotate-even .page:nth-child(even) {
+.rotate-backs .backs {
 	-webkit-transform: rotate(180deg);
 }
 

@@ -15,10 +15,10 @@
 		"filing-colours": true,
 		"rubber-stamp": true,
 		"double-sided": false,
-		"rotate-even": true
+		"rotate-backs": false
 	};
 
-	var make_card = _.template(
+	var make_front = _.template(
 		'<div class="<%= story_type %> card" id="front-<% cardno %>">' +
 		'	<div class="front side">' +
 		'		<div class="header">' +
@@ -35,7 +35,9 @@
 		'			<span class="points points<%= points %>"><span><%= points %></span></span>' +
 		'		</div>' +
 		'	</div>' +
-		'</div>' +
+		'</div>');
+
+	var make_back = _.template(
 		'<div class="<%= story_type %> card" id="back-<% cardno %>">' +
 		'	<div class="back side">' +
 		'		<div class="header">' +
@@ -95,11 +97,15 @@
 	 *  build cards
 	 */
 	var cardno = 0;
-	var page;
+	var fronts = [];
+	var backs = [];
+
 	 ids = _.uniq(ids);
+
 	 _.each(ids, function (id) {
 		var matches = id.split(":");
-		var item, card;
+		var item;
+		var card;
 
 		var story = (matches[0] === "epic")
 			? app.project.getEpicById(matches[1])
@@ -130,23 +136,68 @@
 				owner: story.getOwnedBy && story.getOwnedBy() && story.getOwnedBy().displayName,
 				points: points > 0 ? points : ""
 			};
+
 			if (item.story_type === "chore" && item.name.match(/\?\s*$/)) {
 				item.story_type = "spike";
 			}
-			card = make_card(item);
 
 			/*
-			 *  pagination
+			 *  make cards using templates
 			 */
-			if ((cardno % 2) === 0) {
-				page = $('<div class="page" id="page' + (cardno / 2) + '"></div>');
-				main.append(page);
-			}
-			cardno++;
+			card = make_front(item);
+			fronts.push($(card));
 
-			page.append($(card));
+			card = make_back(item);
+			backs.push($(card));
+
+			cardno++;
 		}
 	});
-	//});
+
+	/*
+	 *  layout cards 
+	 */
+	function double_sided() {
+		var cardno;
+		var front_page;
+		var back_page;
+
+		for (cardno = 0; cardno < fronts.length; cardno++) {
+			if ((cardno % 4) === 0) {
+				front_page = $('<div class="page fronts"></div>');
+				main.append(front_page);
+
+				back_page = $('<div class="page backs"></div>');
+				main.append(back_page);
+			}
+			front_page.append(fronts[cardno]);
+
+			if (!(cardno % 2)) {
+				$(back_page).append(backs[cardno]);
+			} else {
+				$(back_page).children().last().before(backs[cardno]);
+			}
+		}
+	}
+
+	function single_sided() {
+		var cardno;
+		var page;
+
+		for (cardno = 0; cardno < fronts.length; cardno++) {
+			if ((cardno % 2) === 0) {
+				page = $('<div class="page"></div>');
+				main.append(page);
+			}
+			page.append(fronts[cardno]);
+			page.append(backs[cardno]);
+		}
+	}
+
+	if (options['double-sided']) {
+		double_sided();
+	} else {
+		single_sided();
+	}
 
 }(jQuery));
