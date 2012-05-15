@@ -256,10 +256,9 @@
  *  story type as rubber stamp
  */
 .rubber-stamp .chore .front .story-type {
-	margin-top: 12.5mm;
-	margin-left: 30mm;
-	font-size: 21mm;
-	-webkit-transform: rotate(-30deg);
+	margin-top: 0mm;
+	margin-left: 0mm;
+	font-size: 44mm;
 }
 
 .rubber-stamp .epic .front .story-type {
@@ -276,22 +275,19 @@
 }
 
 .rubber-stamp .spike .front .story-type {
-	margin-top: 2.5mm;
-	margin-left: 18mm;
-	font-size: 29mm;
-	-webkit-transform: rotate(18deg);
+	margin-top: -5mm;
+	margin-left: 0mm;
+	font-size: 50mm;
 }
 
 .rubber-stamp .release .front .story-type {
-	margin-top: 12.5mm;
-	margin-left: 25mm;
-	font-size: 21mm;
-	-webkit-transform: rotate(30deg);
+	margin-top: 4.5mm;
+	margin-left: 0mm;
+	font-size: 36mm;
 }
 
 .rubber-stamp .bug .front .story-type {
-	margin-top: -2mm;
+	margin-top: -11mm;
 	margin-left: 7mm;
-	font-size: 30mm;
-	-webkit-transform: rotate(-12deg);
+	font-size: 62mm;
 }
