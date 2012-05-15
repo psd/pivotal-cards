@@ -13,13 +13,14 @@
 
 	var options = {
 		"filing-colours": true,
+		"white-backs": true,
 		"rubber-stamp": true,
 		"double-sided": false,
 		"rotate-backs": false
 	};
 
 	var make_front = _.template(
-		'<div class="<%= story_type %> card" id="front-<% cardno %>">' +
+		'<div class="<%= story_type %> card" id="front-<%= cardno %>">' +
 		'	<div class="front side">' +
 		'		<div class="header">' +
 		'			<span class="labels">' +
@@ -38,7 +39,7 @@
 		'</div>');
 
 	var make_back = _.template(
-		'<div class="<%= story_type %> card" id="back-<% cardno %>">' +
+		'<div class="<%= story_type %> card" id="back-<%= cardno %>">' +
 		'	<div class="back side">' +
 		'		<div class="header">' +
 		'			<span class="project"><%= project_name %></span>' +
