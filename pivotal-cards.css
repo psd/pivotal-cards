@@ -200,20 +200,20 @@
 
 .filing-colours .bug,
 .filing-colours .bug .footer {
-	background-color: #d5a086;
+	background-color: #ffffff;
 }
 
 .filing-colours .bug .label {
-	color: #d5a086;
+	color: #ffffff;
 }
 
 .filing-colours .chore,
 .filing-colours .chore .footer {
-	background-color: #d0f0f0;
+	background-color: #f8f8f8;
 }
 
 .filing-colours .chore .label {
-	color: #d0f0f0;
+	color: #f8f8f8;
 }
 
 .filing-colours .epic,
@@ -227,29 +227,29 @@
 
 .filing-colours .release,
 .filing-colours .release .footer {
-	background-color: #a090ff;
+	background-color: #d0c0ff;
 }
 
 .filing-colours .release .label {
-	color: #8580ff;
+	color: #d0c0ff;
 }
 
 .filing-colours .feature,
 .filing-colours .feature .footer {
-	background-color: #c5d0b6;
+	background-color: #f0ffe0;
 }
 
 .filing-colours .feature .label {
-	color: #c5d0b6;
+	color: #f0ffe0;
 }
 
 .filing-colours .spike,
 .filing-colours .spike .footer {
-	background-color: #faf47e;
+	background-color: #fffba0;
 }
 
 .filing-colours .spike .label {
-	color: #faf47e;
+	color: #fffba0;
 }
 
 /*
