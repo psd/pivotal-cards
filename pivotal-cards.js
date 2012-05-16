@@ -10,8 +10,16 @@
  *
  */
 (function ($) {
-	var make_card = _.template(
-		'<div class="<%= story_type %> card">' +
+
+	var options = {
+		"filing-colours": true,
+		"rubber-stamp": true,
+		"double-sided": true,
+		"white-backs": true
+	};
+
+	var make_front = _.template(
+		'<div class="<%= story_type %> card" id="front-<%= cardno %>">' +
 		'	<div class="front side">' +
 		'		<div class="header">' +
 		'			<span class="labels">' +
@@ -27,6 +35,10 @@
 		'			<span class="points points<%= points %>"><span><%= points %></span></span>' +
 		'		</div>' +
 		'	</div>' +
+		'</div>');
+
+	var make_back = _.template(
+		'<div class="<%= story_type %> card" id="back-<%= cardno %>">' +
 		'	<div class="back side">' +
 		'		<div class="header">' +
 		'			<span class="project"><%= project_name %></span>' +
@@ -55,13 +67,16 @@
 	 *  TBD: really should make a dismissable overlay
 	 */
 	$('body > *').hide();
-	var page = $('<div class="page"></div>');
-	$('body').append(page);
+	var main = $('<div id="pivotal-cards-pages"></div>');
+	_.each(options, function(value, option) {
+		if (value) {
+			main.addClass(option);
+		}
+	});
+	$('body').append(main);
 
 	/*
 	 *  Find visible items
-	 *
-	 *  TBD: screen-scraping possibly fragile ..
 	 */
 	var ids = [];
 	var items = $('.item > .selected'); // use the selected items
@@ -79,10 +94,16 @@
 	/*
 	 *  build cards
 	 */
+	var cardno = 0;
+	var fronts = [];
+	var backs = [];
+
 	 ids = _.uniq(ids);
+
 	 _.each(ids, function (id) {
 		var matches = id.split(":");
-		var item, card;
+		var item;
+		var card;
 
 		var story = (matches[0] === "epic")
 			? app.project.getEpicById(matches[1])
@@ -91,6 +112,7 @@
 		if (story) {
 			var labels = [];
 			var epic_name = "";
+
 			_.each(story.getLabels(), function(label) {
 				if (app.project.getEpicByLabel(label)) {
 					epic_name = label;
@@ -98,11 +120,16 @@
 					labels.push(label);
 				}
 			});
+
 			var points = story.getEstimate && story.getEstimate();
+			var name = story.getName() || "";
+			name = name.replace(/\band\b|&/g, '<span class="amp">&amp;</span>');
+
 			item = {
+				cardno: cardno,
 				story_type: story._storyType ? story._storyType._name : matches[0],
 				id: matches[1],
-				name: story.getName(),
+				name: name,
 				description: story._description || "",
 				epic_name: epic_name,
 				project_name: app.project.getName(),
@@ -112,13 +139,68 @@
 				owner: story.getOwnedBy && story.getOwnedBy() && story.getOwnedBy().displayName,
 				points: points > 0 ? points : ""
 			};
+
 			if (item.story_type === "chore" && item.name.match(/\?\s*$/)) {
 				item.story_type = "spike";
 			}
-			card = make_card(item);
-			$(page).append($(card));
+
+			/*
+			 *  make cards using templates
+			 */
+			card = make_front(item);
+			fronts.push($(card));
+
+			card = make_back(item);
+			backs.push($(card));
+
+			cardno++;
 		}
 	});
-	//});
+
+	/*
+	 *  layout cards 
+	 */
+	function double_sided() {
+		var cardno;
+		var front_page;
+		var back_page;
+
+		for (cardno = 0; cardno < fronts.length; cardno++) {
+			if ((cardno % 4) === 0) {
+				front_page = $('<div class="page fronts"></div>');
+				main.append(front_page);
+
+				back_page = $('<div class="page backs"></div>');
+				main.append(back_page);
+			}
+			front_page.append(fronts[cardno]);
+
+			if (!(cardno % 2)) {
+				$(back_page).append(backs[cardno]);
+			} else {
+				$(back_page).children().last().before(backs[cardno]);
+			}
+		}
+	}
+
+	function single_sided() {
+		var cardno;
+		var page;
+
+		for (cardno = 0; cardno < fronts.length; cardno++) {
+			if ((cardno % 2) === 0) {
+				page = $('<div class="page"></div>');
+				main.append(page);
+			}
+			page.append(fronts[cardno]);
+			page.append(backs[cardno]);
+		}
+	}
+
+	if (options['double-sided']) {
+		double_sided();
+	} else {
+		single_sided();
+	}
 
 }(jQuery));

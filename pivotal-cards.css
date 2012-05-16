@@ -6,38 +6,43 @@
 	font-size: 3.5mm;
 	padding: 10mm;
 	display: block;
-	margin: 5mm;
+	margin: 14mm 5.5mm;
 	padding: 0;
 	border: 1px dotted #eee;
 	width: 283mm;
-	height: 200mm;
-}
-
-.card {
-	height: 85mm;
-	padding: 5mm;
-	-webkit-print-color-adjust: exact;
-	page-break-inside: avoid; /* sadly bugged, so page-break-after:always */
-}
-
-.card:nth-child(even) {
+	height: 170mm;
 	page-break-after: always;
 }
 
-.side {
+.double-sided .backs {
+	-webkit-transform: rotate(180deg);
+}
+
+.card {
 	float: left;
+	height: 85mm;
+	width; 132mm;
+	padding: 0;
+	padding-left: 3.5mm;
+	padding-top: 0.5mm;
+	-webkit-print-color-adjust: exact;
+}
+
+.side {
 	margin: 5mm;
 
 	height: 65mm;
 	width: 115mm;
 
 	padding: 5mm;
-	border: 1mm solid #333;
 	overflow: hidden;
 	color: #333;
 	position: relative;
 }
 
+.back {
+	border: 1mm solid #333;
+}
 
 .header {
 	height: 7.5mm;
@@ -189,80 +194,106 @@
 /*
  *  cards for story-type
  */
-.bug, .bug .footer {
-	background-color: #d5a086;
-}
-.bug .label {
-	color: #d5a086;
-}
-.bug .front .story-type {
-	margin-top: -2mm;
-	margin-left: 7mm;
-	font-size: 30mm;
-	-webkit-transform: rotate(-12deg);
+.filing-colours .front {
+	border: 1mm solid #333;
 }
 
-.chore, .chore .footer {
-	background-color: #d0f0f0;
-}
-.chore .label {
-	color: #d0f0f0;
-}
-.chore .front .story-type {
-	margin-top: 12.5mm;
-	margin-left: 30mm;
-	font-size: 21mm;
-	-webkit-transform: rotate(-30deg);
+.filing-colours .bug,
+.filing-colours .bug .footer {
+	background-color: #ffffff;
 }
 
-.epic, .epic .footer  {
+.filing-colours .bug .label {
+	color: #ffffff;
+}
+
+.filing-colours .chore,
+.filing-colours .chore .footer {
+	background-color: #f8f8f8;
+}
+
+.filing-colours .chore .label {
+	color: #f8f8f8;
+}
+
+.filing-colours .epic,
+.filing-colours .epic .footer  {
 	background-color: #f0b040;
 }
-.epic .label {
+
+.filing-colours .epic .label {
 	color: #f0b040;
 }
-.epic .front .story-type {
+
+.filing-colours .release,
+.filing-colours .release .footer {
+	background-color: #d0c0ff;
+}
+
+.filing-colours .release .label {
+	color: #d0c0ff;
+}
+
+.filing-colours .feature,
+.filing-colours .feature .footer {
+	background-color: #e9f9d9;
+}
+
+.filing-colours .feature .label {
+	color: #f0ffe0;
+}
+
+.filing-colours .spike,
+.filing-colours .spike .footer {
+	background-color: #fffba0;
+}
+
+.filing-colours .spike .label {
+	color: #fffba0;
+}
+
+/*
+ *  story type as rubber stamp
+ */
+.rubber-stamp .chore .front .story-type {
+	margin-top: 0mm;
+	margin-left: 0mm;
+	font-size: 44mm;
+}
+
+.rubber-stamp .epic .front .story-type {
 	margin-top: -12mm;
 	margin-left: 3mm;
 	font-size: 61mm;
 }
 
-.release, .release .footer {
-	background-color: #a090ff;
-}
-.release .label {
-	color: #8580ff;
-}
-.release .front .story-type {
-	margin-top: 12.5mm;
-	margin-left: 25mm;
-	font-size: 21mm;
-	-webkit-transform: rotate(30deg);
+.rubber-stamp .feature .front .story-type {
+	display: none;
 }
 
-.feature, .feature .footer {
-	background-color: #c5d0b6;
-}
-.feature .label {
-	color: #c5d0b6;
-}
-.feature .front .story-type {
-	margin-top: 12.5mm;
-	margin-left: 25mm;
-	font-size: 21mm;
-	-webkit-transform: rotate(30deg);
+.rubber-stamp .spike .front .story-type {
+	margin-top: -5mm;
+	margin-left: 0mm;
+	font-size: 50mm;
 }
 
-.spike, .spike .footer {
-	background-color: #faf47e;
-}
-.spike .label {
-	color: #faf47e;
-}
-.spike .front .story-type {
-	margin-top: 2.5mm;
-	margin-left: 18mm;
-	font-size: 29mm;
-	-webkit-transform: rotate(18deg);
+.rubber-stamp .release .front .story-type {
+	margin-top: 4.5mm;
+	margin-left: 0mm;
+	font-size: 36mm;
 }
 
+.rubber-stamp .bug .front .story-type {
+	margin-top: -11mm;
+	margin-left: 7mm;
+	font-size: 62mm;
+}
+
+/*
+ *  white backs
+ */
+.white-backs .backs .card,
+.white-backs .backs .card .side,
+.white-backs .backs .card .side .footer {
+	background-color: #ffffff;
+}
