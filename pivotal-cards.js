@@ -174,12 +174,14 @@
 				main.append(back_page);
 			}
 			front_page.append(fronts[cardno]);
+			back_page.append(backs[cardno]);
 
+			/*
 			if (!(cardno % 2)) {
-				$(back_page).append(backs[cardno]);
 			} else {
 				$(back_page).children().last().before(backs[cardno]);
 			}
+			*/
 		}
 	}
 

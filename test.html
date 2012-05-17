@@ -11,6 +11,7 @@
 	<div id="current_itemList_story123456783" class="item"></div>
 	<div id="current_itemList_story123456784" class="item"></div>
 	<div id="current_itemList_story123456785" class="item"></div>
+	<div id="current_itemList_story123456786" class="item"></div>
 </div>
 </body>
 <script src="jquery.js"></script>
@@ -77,6 +78,13 @@ app = {
 				"123456785": {
 					"_storyType": { "_name": "chore" },
 					getName: function() { return "What do we need to wrangle for the stuff & ting?" },
+					"_description": "Spike to work out what stuff needs wrangling.",
+					getLabels: function () { return ["one", "two", "three"]; },
+					getTasks: function () { return []; }
+				},
+				"123456786": {
+					"_storyType": { "_name": "chore" },
+					getName: function() { return "An odd card to test an odd number of cards" },
 					"_description": "Spike to work out what stuff needs wrangling.",
 					getLabels: function () { return ["one", "two", "three"]; },
 					getTasks: function () { return []; }
