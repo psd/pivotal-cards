@@ -14,8 +14,15 @@
 	page-break-after: always;
 }
 
+/*
+ *  double-sided printing
+ */
 .double-sided .backs {
 	-webkit-transform: rotate(180deg);
+}
+
+.double-sided .backs .card {
+	float: right;
 }
 
 .card {
