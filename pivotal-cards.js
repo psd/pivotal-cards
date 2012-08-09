@@ -140,7 +140,7 @@
 				points: points > 0 ? points : ""
 			};
 
-			if (item.story_type === "chore" && item.name.match(/\?\s*$/)) {
+			if (item.name.match(/\?\s*$/)) {
 				item.story_type = "spike";
 			}
 
