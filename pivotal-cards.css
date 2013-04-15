@@ -30,6 +30,7 @@
 	height: 85mm;
 	width; 132mm;
 	padding: 0;
+	padding-left: 3.5mm;
 	padding-top: 0.5mm;
 	-webkit-print-color-adjust: exact;
 }
